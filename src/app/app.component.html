@@ -1,0 +1,22 @@
+<h2
+  style="
+    text-align: center;
+    color: #3f51b5;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-top: 20px;
+  "
+>
+  Crypto Watch
+</h2>
+
+<p class="text-center text-lg font-bold text-indigo-800" style="margin: 0 10px">
+  A single web app to keep a watch on various crypto currencies using web api
+  for live rates and divided into various base currencies.
+</p>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="INR"> <app-inr [data]="inr"></app-inr> </mat-tab>
+  <mat-tab label="BTC"> <app-btc [data]="btc"></app-btc> </mat-tab>
+  <mat-tab label="USDT"> <app-usdt [data]="usdt"></app-usdt> </mat-tab>
+</mat-tab-group>

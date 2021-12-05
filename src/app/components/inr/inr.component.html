@@ -1,0 +1,37 @@
+<div *ngFor="let d of data">
+  <mat-card class="shadow-sm m-3 p-0">
+    <mat-card-header>
+      <mat-card-title style="color: #3f51b5" class="font-bold">
+        {{ d.baseAsset + " / " + d.quoteAsset | uppercase }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        "
+      >
+        <p class="font-bold text-lg text-red-600">
+          <fa-icon [icon]="faRupeeSign"></fa-icon> {{ d.bidPrice }}
+        </p>
+        <p class="font-bold text-lg text-green-600">
+          <fa-icon [icon]="faRupeeSign"></fa-icon> {{ d.askPrice }}
+        </p>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        "
+      >
+        <p>H: <fa-icon [icon]="faRupeeSign"></fa-icon> {{ d.highPrice }}</p>
+        <p>L: <fa-icon [icon]="faRupeeSign"></fa-icon> {{ d.lowPrice }}</p>
+        <p>V: <fa-icon [icon]="faRupeeSign"></fa-icon> {{ d.volume }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
