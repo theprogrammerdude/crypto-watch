@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -11,27 +12,25 @@ export class AppComponent implements OnInit {
   btc: Array<any> = [];
   usdt: Array<any> = [];
 
-  constructor(public http: HttpClient) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     setInterval(() => {
       this.marketData();
-    }, 2000);
+    }, 1500);
   }
 
   marketData() {
-    this.http
-      .get('https://api.wazirx.com/sapi/v1/tickers/24hr')
-      .subscribe((d: any) => {
-        this.inr = [];
-        this.btc = [];
-        this.usdt = [];
+    this.apiService.getMarketData().subscribe((d: any) => {
+      this.inr = [];
+      this.btc = [];
+      this.usdt = [];
 
-        d.forEach((e: any) => {
-          if (e.quoteAsset === 'inr') this.inr.push(e);
-          if (e.quoteAsset === 'btc') this.btc.push(e);
-          if (e.quoteAsset === 'usdt') this.usdt.push(e);
-        });
+      d.forEach((e: any) => {
+        if (e.quoteAsset === 'inr') this.inr.push(e);
+        if (e.quoteAsset === 'btc') this.btc.push(e);
+        if (e.quoteAsset === 'usdt') this.usdt.push(e);
       });
+    });
   }
 }

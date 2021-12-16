@@ -1,5 +1,11 @@
+<mat-spinner
+  *ngIf="data.length === 0"
+  diameter="50"
+  style="margin: 0 auto; margin-top: 25%"
+></mat-spinner>
+
 <div *ngFor="let d of data">
-  <mat-card class="shadow-sm m-3 p-0">
+  <mat-card class="shadow-sm m-3 p-0" *ngIf="data.length !== 0">
     <mat-card-header>
       <mat-card-title style="color: #3f51b5" class="font-bold">
         {{ d.baseAsset + " / " + d.quoteAsset | uppercase }}
@@ -14,10 +20,10 @@
         "
       >
         <p class="font-bold text-lg text-red-600">
-          <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.bidPrice }}
+          <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.bidPrice | number }}
         </p>
         <p class="font-bold text-lg text-green-600">
-          <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.askPrice }}
+          <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.askPrice | number }}
         </p>
       </div>
 
@@ -28,9 +34,14 @@
           justify-content: space-evenly;
         "
       >
-        <p>H: <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.highPrice }}</p>
-        <p>L: <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.lowPrice }}</p>
-        <p>V: <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.volume }}</p>
+        <p class="font-bold">
+          H: <fa-icon [icon]="faDollarSign"></fa-icon>
+          {{ d.highPrice | number }}
+        </p>
+        <p class="font-bold">
+          L: <fa-icon [icon]="faDollarSign"></fa-icon> {{ d.lowPrice | number }}
+        </p>
+        <p class="font-bold">V: {{ d.volume | number }}</p>
       </div>
     </mat-card-content>
   </mat-card>

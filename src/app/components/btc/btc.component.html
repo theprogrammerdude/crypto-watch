@@ -1,5 +1,11 @@
+<mat-spinner
+  *ngIf="data.length === 0"
+  diameter="50"
+  style="margin: 0 auto; margin-top: 25%"
+></mat-spinner>
+
 <div *ngFor="let d of data">
-  <mat-card class="shadow-sm m-3 p-0">
+  <mat-card class="shadow-sm m-3 p-0" *ngIf="data.length !== 0">
     <mat-card-header>
       <mat-card-title style="color: #3f51b5" class="font-bold">
         {{ d.baseAsset + " / " + d.quoteAsset | uppercase }}
@@ -13,8 +19,12 @@
           justify-content: space-evenly;
         "
       >
-        <p class="font-bold text-lg text-red-600">{{ d.bidPrice }}</p>
-        <p class="font-bold text-lg text-green-600">{{ d.askPrice }}</p>
+        <p class="font-bold text-lg text-red-600">
+          {{ d.bidPrice }}
+        </p>
+        <p class="font-bold text-lg text-green-600">
+          {{ d.askPrice }}
+        </p>
       </div>
 
       <div
@@ -24,9 +34,9 @@
           justify-content: space-evenly;
         "
       >
-        <p>H: {{ d.highPrice }}</p>
-        <p>L: {{ d.lowPrice }}</p>
-        <p>V: {{ d.volume }}</p>
+        <p class="font-bold">H: {{ d.highPrice }}</p>
+        <p class="font-bold">L: {{ d.lowPrice }}</p>
+        <p class="font-bold">V: {{ d.volume }}</p>
       </div>
     </mat-card-content>
   </mat-card>

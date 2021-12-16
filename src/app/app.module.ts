@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -17,6 +19,8 @@ import { UsdtComponent } from './components/usdt/usdt.component';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [AppComponent, InrComponent, BtcComponent, UsdtComponent],
@@ -28,6 +32,9 @@ import { environment } from '../environments/environment';
     MatCardModule,
     MatTabsModule,
     FontAwesomeModule,
+    MatProgressSpinnerModule,
+    MatBottomSheetModule,
+    NgApexchartsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

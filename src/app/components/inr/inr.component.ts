@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { faRupeeSign } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,7 +11,7 @@ export class InrComponent implements OnInit {
   @Input() data: Array<any> = [];
   faRupeeSign = faRupeeSign;
 
-  constructor() {}
+  constructor(private _bottomSheet: MatBottomSheet) {}
 
   ngOnInit(): void {}
 }
